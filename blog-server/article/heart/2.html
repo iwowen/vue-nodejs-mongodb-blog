@@ -1,0 +1,82 @@
+<p>
+	我用树莓派搭建的网站
+</p>
+<h3>
+	空间小不稳定
+</h3>
+<p>
+	如果哪天树莓派坏掉那不是数据就没有了
+</p>
+<h2>
+	怎么办
+</h2>
+<p>
+	在网上找的办法，可以使用python的bypy库实现百度云的上传功能
+</p>
+<p>
+	首先为python安装requests、bypy库
+</p>
+<p>
+	<br />
+</p>
+<pre class="prettyprint lang-bsh">pip install requests</pre>
+<pre class="prettyprint lang-bsh">pip install bypy</pre>
+之后使用bypy命令
+<pre class="prettyprint lang-bsh">bypy info</pre>
+<p>
+	然后会得到一个网址，通过这个网址使用账号授权，得到一个授权码
+</p>
+<p>
+	<img src="http://www.thinktw.cn/wp-content/uploads/2018/08/20160610144906311-300x67.png" alt="" width="300" height="67" class="alignnone size-medium wp-image-406" /> 
+</p>
+<p>
+	<br />
+</p>
+<p>
+	将这个码输入然后继续回车，就算是授权成功
+</p>
+<p>
+	<img src="http://www.thinktw.cn/wp-content/uploads/2018/08/20160610145112533-300x40.png" alt="" width="300" height="40" class="alignnone size-medium wp-image-407" /> 
+</p>
+<p>
+	进入需要上传的目录
+</p>
+<p>
+	就可以使用命令上传同步了
+</p>
+<pre class="prettyprint lang-bsh">bypy upload   //同步到百度云</pre>
+<p>
+	这样就将文件夹数据全部同步到百度云的/我的应用数据(apps)/bypy中
+</p>
+<p>
+	<br />
+</p>
+<p>
+	之后我使用宝塔面板的计划任务进行备份，并且同步到百度云
+</p>
+<p>
+	因为宝塔面板的用户不知道，之前的授权也没有作用到宝塔面板
+</p>
+<h2>
+	怎么办-_-&amp;
+</h2>
+<p>
+	使用宝塔面板计划任务，运行shell，输入授权码
+</p>
+<p>
+	<br />
+</p>
+<pre class="prettyprint lang-bsh">echo "授权码" | bypy info</pre>
+然后授权成功
+<p>
+	<br />
+</p>
+<p>
+	<img src="http://www.thinktw.cn/wp-content/uploads/2018/08/U09KMC44SKN1E3GGZRRH-300x133.png" alt="" width="300" height="133" class="alignnone size-medium wp-image-409" /> 
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<br />
+</p>

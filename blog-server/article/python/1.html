@@ -1,0 +1,84 @@
+<p>
+	在django中会经常用到url映射，如果将url写死了，那么在改写代码的时候会非常麻烦，所以可以为url指定一个名字，然后在使用url的地方用url反转就行。
+</p>
+<h3>
+	首先为url指定名称
+</h3>
+<p>
+	path函数中有name属性，name属性就是为url取的名字
+</p>
+<p>
+	<br />
+</p>
+<pre class="prettyprint lang-js">from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('index/', views.index, name='index'),
+    path('login/', views.login, name='login'),
+]</pre>
+然后在调用url的时候只需要进行url反转就行
+<p>
+	<br />
+</p>
+<p>
+	<br />
+</p>
+<pre class="prettyprint lang-js">from django.http import HttpResponse
+from django.shortcuts import reverse
+
+
+def index(request):
+    url = reverse('index')
+    return HttpResponse(url)</pre>
+<p>
+	上面的代码的意思是在返回index页面的时候返回名字为index的url
+</p>
+<p>
+	<img src="http://www.thinktw.cn/wp-content/uploads/2018/09/5-300x124.png" alt="" width="300" height="124" class="alignnone size-medium wp-image-442" /> 
+</p>
+<p>
+	在多个app的时候，可能会有同名的url，会参产生混淆
+</p>
+<h3>
+	这时候需要配置应用命名空间
+</h3>
+<p>
+	分别在两个app中urls文件里面设置app_name
+</p>
+<p>
+	<br />
+</p>
+<pre class="prettyprint lang-js">//app1
+from django.urls import path
+from . import views
+
+app_name = 'app1'
+urlpatterns = [
+    path('index/', views.index, name='index'),
+    path('login/', views.login, name='login'),
+]</pre>
+<pre class="prettyprint lang-js">//app2 from django.urls import path
+from . import views
+
+app_name = 'app2'
+urlpatterns = [
+    path('index/', views.index, name='index'),
+    path('login/', views.login, name='login'),
+]</pre>
+<p>
+	在调用的时候用分号，示例代码如下，在app1中访问index返回app2中的index名称的url
+</p>
+<p>
+	<br />
+</p>
+<pre class="prettyprint lang-js">from django.http import HttpResponse
+from django.shortcuts import reverse
+
+
+def index(request):
+    url = reverse('app2:index')
+    return HttpResponse(url)</pre>
+最终效果<br />
+<br />
+<img src="http://www.thinktw.cn/wp-content/uploads/2018/09/6-300x88.png" alt="" width="300" height="88" class="alignnone size-medium wp-image-443" />
