@@ -19,6 +19,7 @@ npm run build --report
 ```
 
 缺少两个文件
+
 .babelrc
 ```
 {
