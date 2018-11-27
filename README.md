@@ -21,10 +21,15 @@ vue前后端分离博客
 ![Image text](https://github.com/iwowen/vue-nodejs-mongodb-blog/blob/master/img/12.png?raw=true)
 
 ##数据库
+
 ![Image text](https://github.com/iwowen/vue-nodejs-mongodb-blog/blob/master/img/1.png?raw=true)
+
 ![Image text](https://github.com/iwowen/vue-nodejs-mongodb-blog/blob/master/img/2.png?raw=true)
+
 ![Image text](https://github.com/iwowen/vue-nodejs-mongodb-blog/blob/master/img/3.png?raw=true)
+
 ![Image text](https://github.com/iwowen/vue-nodejs-mongodb-blog/blob/master/img/4.png?raw=true)
+
 ![Image text](https://github.com/iwowen/vue-nodejs-mongodb-blog/blob/master/img/5.png?raw=true)
 
 ##交互图
